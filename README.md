@@ -1,27 +1,29 @@
-# Inputstream-reader-cli-utils 
+# shnavi
 
-Utils to simplify and support simplify cli-input-tasks in bash-scripts
+## Linux
 
-# cli-navigation.sh
-Supports you when implementing user-interaction in bash-scripts by realizing an easy commandlin-selection-menu with errorhandling.
-Usually you ask the user in a script a question and consider a count of oportunities like:
+### Util to simplify and support Terminalinput-menus in bash-scripts.
+Supports you when implementing user-interaction in bash-scripts by realizing an easy terminal-selection-menu with error-avoidence.
 
-<question> <option_1> ... <option_n>
+To implement shnavi in bashscripts you have to store it in `/usr/local/bin/`.
 
-The user has to choose one option by typing number or name. If he types wrong, than you should handle it.
+After downloading the code you can execute in your terminal: `sudo mv ./shnavi.sh /usr/local/bin/shnavi`
 
-This script implements a generic menu for you. You just have to pass question as doublequoted string and the args (doesn't matter how many) like:
+You can run `./example.sh` to see how its work and look at the example to see how simple it is to iplement.
 
-./cli-navigation.sh "choose one of this menuoptions" option1 option2 foo bar 
+The syntax to use it in scripts is:
+`returnval=$(shnavi "quetion or advice for user" option_1 option_2 foo bar ... option_n`
 
 It will print in commandline:
-
-choose one of this menuoptions
-(1) option1
-(2) option2
+```
+question or advice for user
+(1) option_1
+(2) option_2
 (3) foo
 (4) bar
+...
+(n) option_n
+```
 
 Afterwards it waits for correct selection. If userselection is not valid it will repeat the question. If userselection is valid, you can handle the returnvalue in your code. The returnvalue is an integer as string.
 
- 
